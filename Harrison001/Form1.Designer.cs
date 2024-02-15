@@ -70,6 +70,21 @@
             this.label16 = new System.Windows.Forms.Label();
             this.dataGridClasses = new System.Windows.Forms.DataGridView();
             this.tabMaterials = new System.Windows.Forms.TabPage();
+            this.comboBoxMaterialType = new System.Windows.Forms.ComboBox();
+            this.comboBoxStaffID = new System.Windows.Forms.ComboBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.dataGridTeachingMaterial = new System.Windows.Forms.DataGridView();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.textboxMaterialID = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.addTeachingMaterial_btn = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.textBoxTitle = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.tabEnrolements = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabStudents.SuspendLayout();
@@ -78,6 +93,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridStaff)).BeginInit();
             this.tabClasses.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridClasses)).BeginInit();
+            this.tabMaterials.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridTeachingMaterial)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -513,12 +530,164 @@
             // 
             // tabMaterials
             // 
+            this.tabMaterials.Controls.Add(this.comboBoxMaterialType);
+            this.tabMaterials.Controls.Add(this.comboBoxStaffID);
+            this.tabMaterials.Controls.Add(this.textBox5);
+            this.tabMaterials.Controls.Add(this.label20);
+            this.tabMaterials.Controls.Add(this.dataGridTeachingMaterial);
+            this.tabMaterials.Controls.Add(this.label14);
+            this.tabMaterials.Controls.Add(this.label15);
+            this.tabMaterials.Controls.Add(this.textboxMaterialID);
+            this.tabMaterials.Controls.Add(this.button1);
+            this.tabMaterials.Controls.Add(this.button2);
+            this.tabMaterials.Controls.Add(this.addTeachingMaterial_btn);
+            this.tabMaterials.Controls.Add(this.label17);
+            this.tabMaterials.Controls.Add(this.label18);
+            this.tabMaterials.Controls.Add(this.textBoxTitle);
+            this.tabMaterials.Controls.Add(this.label19);
             this.tabMaterials.Location = new System.Drawing.Point(4, 22);
             this.tabMaterials.Name = "tabMaterials";
             this.tabMaterials.Size = new System.Drawing.Size(875, 588);
             this.tabMaterials.TabIndex = 3;
             this.tabMaterials.Text = "Materials";
             this.tabMaterials.UseVisualStyleBackColor = true;
+            // 
+            // comboBoxMaterialType
+            // 
+            this.comboBoxMaterialType.FormattingEnabled = true;
+            this.comboBoxMaterialType.Location = new System.Drawing.Point(560, 59);
+            this.comboBoxMaterialType.Name = "comboBoxMaterialType";
+            this.comboBoxMaterialType.Size = new System.Drawing.Size(299, 21);
+            this.comboBoxMaterialType.TabIndex = 43;
+            // 
+            // comboBoxStaffID
+            // 
+            this.comboBoxStaffID.FormattingEnabled = true;
+            this.comboBoxStaffID.Location = new System.Drawing.Point(560, 86);
+            this.comboBoxStaffID.Name = "comboBoxStaffID";
+            this.comboBoxStaffID.Size = new System.Drawing.Size(299, 21);
+            this.comboBoxStaffID.TabIndex = 42;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(560, 113);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(299, 20);
+            this.textBox5.TabIndex = 41;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(494, 116);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(23, 13);
+            this.label20.TabIndex = 40;
+            this.label20.Text = "File";
+            // 
+            // dataGridTeachingMaterial
+            // 
+            this.dataGridTeachingMaterial.AllowUserToAddRows = false;
+            this.dataGridTeachingMaterial.AllowUserToDeleteRows = false;
+            this.dataGridTeachingMaterial.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.dataGridTeachingMaterial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridTeachingMaterial.Location = new System.Drawing.Point(16, 219);
+            this.dataGridTeachingMaterial.MultiSelect = false;
+            this.dataGridTeachingMaterial.Name = "dataGridTeachingMaterial";
+            this.dataGridTeachingMaterial.Size = new System.Drawing.Size(848, 361);
+            this.dataGridTeachingMaterial.TabIndex = 39;
+            this.dataGridTeachingMaterial.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridTeachingMaterial_CellContentClick);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(11, 9);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(236, 29);
+            this.label14.TabIndex = 38;
+            this.label14.Text = "Teaching Materials";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(495, 12);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(58, 13);
+            this.label15.TabIndex = 37;
+            this.label15.Text = "Material ID";
+            // 
+            // textboxMaterialID
+            // 
+            this.textboxMaterialID.Location = new System.Drawing.Point(560, 9);
+            this.textboxMaterialID.Name = "textboxMaterialID";
+            this.textboxMaterialID.Size = new System.Drawing.Size(299, 20);
+            this.textboxMaterialID.TabIndex = 36;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(784, 190);
+            this.button1.Name = "button1";
+            this.button1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 35;
+            this.button1.Text = "Delete";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.deleteTeachingMaterial);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(703, 190);
+            this.button2.Name = "button2";
+            this.button2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 34;
+            this.button2.Text = "Update";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // addTeachingMaterial_btn
+            // 
+            this.addTeachingMaterial_btn.Location = new System.Drawing.Point(622, 190);
+            this.addTeachingMaterial_btn.Name = "addTeachingMaterial_btn";
+            this.addTeachingMaterial_btn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.addTeachingMaterial_btn.Size = new System.Drawing.Size(75, 23);
+            this.addTeachingMaterial_btn.TabIndex = 33;
+            this.addTeachingMaterial_btn.Text = "Add Record";
+            this.addTeachingMaterial_btn.UseVisualStyleBackColor = true;
+            this.addTeachingMaterial_btn.Click += new System.EventHandler(this.addTeachingMaterial_btn_Click);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(494, 90);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(29, 13);
+            this.label17.TabIndex = 31;
+            this.label17.Text = "Staff";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(494, 64);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(31, 13);
+            this.label18.TabIndex = 29;
+            this.label18.Text = "Type";
+            // 
+            // textBoxTitle
+            // 
+            this.textBoxTitle.Location = new System.Drawing.Point(560, 35);
+            this.textBoxTitle.Name = "textBoxTitle";
+            this.textBoxTitle.Size = new System.Drawing.Size(299, 20);
+            this.textBoxTitle.TabIndex = 28;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(494, 38);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(27, 13);
+            this.label19.TabIndex = 27;
+            this.label19.Text = "Title";
             // 
             // tabEnrolements
             // 
@@ -547,6 +716,9 @@
             this.tabClasses.ResumeLayout(false);
             this.tabClasses.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridClasses)).EndInit();
+            this.tabMaterials.ResumeLayout(false);
+            this.tabMaterials.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridTeachingMaterial)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -596,6 +768,21 @@
         private System.Windows.Forms.TextBox className;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.DataGridView dataGridClasses;
+        private System.Windows.Forms.DataGridView dataGridTeachingMaterial;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox textboxMaterialID;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button addTeachingMaterial_btn;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox textBoxTitle;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.ComboBox comboBoxMaterialType;
+        private System.Windows.Forms.ComboBox comboBoxStaffID;
     }
 }
 

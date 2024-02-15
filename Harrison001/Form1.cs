@@ -32,6 +32,8 @@ namespace Harrison001
         {
             showDataTable();
             loadClassesComboBox();
+            loadStaffComboBox();
+            loadMaterialTypeComboBox();
         }
 
      
@@ -52,7 +54,7 @@ namespace Harrison001
             }
             else if(student.insertStudent(classID, name, email, phone))
             {
-                    studentName.Text = "";
+                 studentName.Text = "";
                 studentEmail.Text = "";
                 studentPhone.Text = "";
                 showDataTable();
@@ -90,6 +92,13 @@ namespace Harrison001
             dataGridClasses.DataSource = cls.getClassesList();
 
 
+            teachingMaterial tm = new teachingMaterial();
+            dataGridTeachingMaterial.DataSource = tm.getTeachingMaterialList();
+
+
+
+
+
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -103,6 +112,25 @@ namespace Harrison001
             comboBox1.DataSource = cls.getClassesList();
             comboBox1.DisplayMember = "className";
             comboBox1.ValueMember = "classID";
+        }
+        private void loadStaffComboBox()
+        {
+            staffClass staff = new staffClass();
+            comboBoxStaffID.DataSource = staff.getStaffList();
+            comboBoxStaffID.DisplayMember = "staffName";
+            comboBoxStaffID.ValueMember = "staffID"; 
+           
+        }
+        private void loadMaterialTypeComboBox()
+        {
+            teachingMaterial mt = new teachingMaterial();
+            comboBoxMaterialType.DataSource = mt.getMaterialType();
+            comboBoxMaterialType.DisplayMember = "materialTypeName";
+            comboBoxMaterialType.ValueMember = "materialTypeID";
+
+            
+
+
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -223,6 +251,19 @@ namespace Harrison001
 
         }
 
+        bool verifyTeachingMaterials()
+        {
+
+            if ((textBoxTitle.Text == ""))
+                return false;
+            else
+            {
+                return true;
+            }
+
+
+        }
+
         private void addStaff_Click(object sender, EventArgs e)
         {
             string name = staffName.Text;
@@ -318,7 +359,7 @@ namespace Harrison001
             string classId = classID.Text;
             classesClass  cls = new classesClass();
 
-
+            
             if (!verifyClass())
             {
                 MessageBox.Show("Please Select any record");
@@ -408,6 +449,66 @@ namespace Harrison001
 
         }
 
-     
+        private void dataGridTeachingMaterial_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+
+                DataGridViewRow row = this.dataGridTeachingMaterial.Rows[e.RowIndex];
+                textboxMaterialID.Text = row.Cells["materialID"].Value.ToString();
+                textBoxTitle.Text = row.Cells["title"].Value.ToString();
+                comboBoxMaterialType.SelectedValue = row.Cells["materialTypeID"].Value.ToString();
+                comboBoxStaffID.SelectedValue = row.Cells["StaffID"].Value.ToString();
+
+                // staffEmail.Text = row.Cells["staffEmail"].Value.ToString();
+                // staffPhone.Text = row.Cells["staffPhone"].Value.ToString();
+            }
+        }
+
+        private void deleteTeachingMaterial(object sender, EventArgs e)
+        {
+            string materialID = textboxMaterialID.Text;
+            teachingMaterial tmObj = new teachingMaterial();
+
+
+            if (!verifyTeachingMaterials())
+            {
+                MessageBox.Show("Please Select any record");
+
+            }
+            else if (tmObj.deleteTeachingMaterial(materialID))
+            {
+                textboxMaterialID.Text = "";
+                textBoxTitle.Text = "";
+               // comboBoxMaterialType.SelectedValue = "";
+               // comboBoxStaffID.SelectedValue = "";
+                showDataTable();
+                MessageBox.Show("Teaching Material has been deleted");
+            }
+        }
+
+        private void addTeachingMaterial_btn_Click(object sender, EventArgs e)
+        {
+
+            string title = textBoxTitle.Text.ToString();
+            string materialTypeID = comboBoxMaterialType.SelectedValue.ToString();
+            string staffID = comboBoxStaffID.SelectedValue.ToString();
+
+            teachingMaterial tmObj = new teachingMaterial();
+
+
+            if (!verifyTeachingMaterials())
+            {
+                MessageBox.Show("Please Enter all fields");
+
+            }
+            else if (tmObj.insertTeachingMaterial(title, materialTypeID, staffID))
+            {
+                textboxMaterialID.Text = "";
+                textBoxTitle.Text = "";
+                showDataTable();
+                MessageBox.Show("Teaching Material has been added successfully");
+            }
+        }
     }
 }

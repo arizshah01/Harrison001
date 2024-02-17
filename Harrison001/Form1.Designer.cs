@@ -86,6 +86,8 @@
             this.textBoxTitle = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.tabEnrolements = new System.Windows.Forms.TabPage();
+            this.enrolledStudents = new System.Windows.Forms.DataGridView();
+            this.label21 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabStudents.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentDataGrid)).BeginInit();
@@ -95,6 +97,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridClasses)).BeginInit();
             this.tabMaterials.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTeachingMaterial)).BeginInit();
+            this.tabEnrolements.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.enrolledStudents)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -643,6 +647,7 @@
             this.button2.TabIndex = 34;
             this.button2.Text = "Update";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // addTeachingMaterial_btn
             // 
@@ -691,12 +696,38 @@
             // 
             // tabEnrolements
             // 
+            this.tabEnrolements.Controls.Add(this.label21);
+            this.tabEnrolements.Controls.Add(this.enrolledStudents);
             this.tabEnrolements.Location = new System.Drawing.Point(4, 22);
             this.tabEnrolements.Name = "tabEnrolements";
             this.tabEnrolements.Size = new System.Drawing.Size(875, 588);
             this.tabEnrolements.TabIndex = 4;
             this.tabEnrolements.Text = "Enrolments";
             this.tabEnrolements.UseVisualStyleBackColor = true;
+            // 
+            // enrolledStudents
+            // 
+            this.enrolledStudents.AllowUserToAddRows = false;
+            this.enrolledStudents.AllowUserToDeleteRows = false;
+            this.enrolledStudents.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.enrolledStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.enrolledStudents.Location = new System.Drawing.Point(3, 71);
+            this.enrolledStudents.MultiSelect = false;
+            this.enrolledStudents.Name = "enrolledStudents";
+            this.enrolledStudents.Size = new System.Drawing.Size(848, 487);
+            this.enrolledStudents.TabIndex = 40;
+            this.enrolledStudents.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(16, 18);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(221, 29);
+            this.label21.TabIndex = 41;
+            this.label21.Text = "Enrolled Students";
+            this.label21.Click += new System.EventHandler(this.label21_Click);
             // 
             // Form1
             // 
@@ -719,6 +750,9 @@
             this.tabMaterials.ResumeLayout(false);
             this.tabMaterials.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTeachingMaterial)).EndInit();
+            this.tabEnrolements.ResumeLayout(false);
+            this.tabEnrolements.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.enrolledStudents)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -783,6 +817,8 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.ComboBox comboBoxMaterialType;
         private System.Windows.Forms.ComboBox comboBoxStaffID;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.DataGridView enrolledStudents;
     }
 }
 

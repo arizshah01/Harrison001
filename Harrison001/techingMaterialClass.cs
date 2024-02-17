@@ -76,7 +76,7 @@ namespace Harrison001
             return dt;
 
         }
-
+        // Return a List  of Material Type from matrialType to populate ComboBoxes
         public DataTable getMaterialType()
         {
             MySqlCommand command = new MySqlCommand("SELECT * FROM `materialtype` ORDER BY `materialTypeName` ASC ;", connect.getConnection);

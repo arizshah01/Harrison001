@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -84,6 +85,9 @@ namespace Harrison001
             studentClass student = new studentClass();
             studentDataGrid.DataSource = student.getStudentList();
 
+
+            enrolledStudents.DataSource = student.getStudentList();
+ 
             staffClass staff = new staffClass();
             dataGridStaff.DataSource = staff.getStaffList();
 
@@ -480,8 +484,7 @@ namespace Harrison001
             {
                 textboxMaterialID.Text = "";
                 textBoxTitle.Text = "";
-               // comboBoxMaterialType.SelectedValue = "";
-               // comboBoxStaffID.SelectedValue = "";
+  
                 showDataTable();
                 MessageBox.Show("Teaching Material has been deleted");
             }
@@ -510,5 +513,78 @@ namespace Harrison001
                 MessageBox.Show("Teaching Material has been added successfully");
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string title = textBoxTitle.Text.ToString();
+            string materialID = textboxMaterialID.Text.ToString();
+            string materialTypeID = comboBoxMaterialType.SelectedValue.ToString();
+            string staffID = comboBoxStaffID.SelectedValue.ToString();
+            teachingMaterial tmObj = new teachingMaterial();
+
+
+            if (!verifyTeachingMaterials())
+            {
+                MessageBox.Show("Please Enter all fields");
+
+            }
+            else if (tmObj.updateTeachingMaterial(materialID, title, materialTypeID, staffID))
+            {
+               // textboxMaterialID.Text = "";
+               // textBoxTitle.Text = "";
+                showDataTable();
+                MessageBox.Show("Teaching Material has been updated successfully");
+            }
+        }
+
+        private void label21_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void UploadFile()
+
+        {
+         //   DBConnect connect = new DBConnect();
+         //   FileStream fstream = File.OpenRead(file);
+         //   byte[] contents = new byte[fstream.Length];
+         //   fstream.Read(contents, 0, (int)fstream.Length);
+         //   fstream.Close();
+           // using (cmd = new MySQLQCommand("insert into document(id, files) values(@id, @files)", connect.getConnection))
+           // {
+           //     cmd.Parameters.AddWithValue("@id", textid.Text);
+           //     cmd.Parameters.AddWithValue("@files", contents);
+           //     cmd.ExecuteNonQuery();
+           // }
+
+        }
+
+        //private void btn_upload_click(object sender, EventArgs e)
+        //{
+        //    using (OpenFileDialog dig = new OpenFileDialog() { Filter = "Text Document(*.pdf;) |*.pdf", ValidateName = true })
+        //    {
+        //        if (dig.ShowDialog() == DialogResult.OK)
+        //        {
+        //            DialogResult dialog = MessageBox.Show("Are you sure", "VINSMOKE MJ", MessageBoxButtons);
+        //            if (dialog == DialogResult.Yes)
+        //            {
+
+        //                string filename = dig.FileName;
+        //         //       UploadFile(filename);
+
+        //            }
+        //            else
+        //            {
+        //                return;
+        //            }
+
+        //        }
+        //    }
+        //}
     }
 }

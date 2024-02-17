@@ -12,11 +12,11 @@ namespace Harrison001
 {
     partial class DBConnect
     {
-       
-           
-            MySqlConnection connect = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=hsdb");
 
-            public MySqlConnection getConnection
+   
+        MySqlConnection connect = new MySqlConnection("datasource=harrissons-ltd-db1.criy66wskci8.us-east-1.rds.amazonaws.com;port=3306;username=Harris2024;password=Sons2024;database=Harris_and_Sons");
+
+        public MySqlConnection getConnection
         {
             get
             {
